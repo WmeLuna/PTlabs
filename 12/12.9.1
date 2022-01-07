@@ -1,0 +1,41 @@
+#R1
+en
+conf t
+interface gigabitEthernet 0/0
+ipv6 address 2001:db8:acad:00c8::1/64
+ipv6 address fe80::1 link-local
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ipv6 address 2001:db8:acad:00c9::1/64
+ipv6 address fe80::1 link-local
+no shutdown
+exit
+interface serial 0/0/0
+ipv6 address 2001:db8:acad:00cc::1/64
+ipv6 address fe80::1 link-local
+no shutdown
+exit
+exit
+wr
+
+#R2
+en
+conf t
+interface gigabitEthernet 0/0
+ipv6 address 2001:db8:acad:00ca::1/64
+ipv6 address fe80::2 link-local
+no shutdown
+exit
+interface gigabitEthernet 0/1
+ipv6 address 2001:db8:acad:00cb::1/64
+ipv6 address fe80::2 link-local
+no shutdown
+exit
+interface serial 0/0/0
+ipv6 address 2001:db8:acad:00cc::2/64
+ipv6 address fe80::2 link-local
+no shutdown
+exit
+exit
+wr
